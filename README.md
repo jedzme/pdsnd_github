@@ -6,7 +6,7 @@
 
 
 ## Description
-This project will computes and analyzes the bikeshare rides data for the following cities: Chicago, New York City, and Washington.
+This project computes and analyzes the bikeshare rides data for the following cities: Chicago, New York City, and Washington.
 It interacts with the user through the terminal and the following questions will be asked:
 
 * Would you like to see data for Chicago, New York, or Washington?
