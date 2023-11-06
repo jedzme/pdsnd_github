@@ -27,7 +27,7 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     city = ''
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while city not in CITY_DATA:
         city = str(input('Would you like to see data for Chicago, New York, or Washington? ')).lower()
     print('\n\t ==> You chose to see data for city: {}!\n'.format(city.title()))
@@ -225,7 +225,7 @@ def user_stats(df, city):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
+    # Display counts of user types
     user_types = df['User Type'].unique()
     user_types = user_types[~pd.isnull(user_types)]
     print('[User Type]  [Count]')
