@@ -74,9 +74,10 @@ def load_data(city, month, day):
     df['Start Time(Converted)'] = pd.to_datetime(df['Start Time'])
     
     df['month'] = df['Start Time(Converted)'].dt.month
-    df['day_of_week'] = df['Start Time(Converted)'].dt.weekday_name
+    #df['day_of_week'] = df['Start Time(Converted)'].dt.weekday_name #python 1 and below
+    df['day_of_week'] = df['Start Time(Converted)'].dt.day_of_week 
     df['hour'] = df['Start Time(Converted)'].dt.hour
-    
+
     # filter by month if applicable
     if month != '':
         # use the index of the months list to get the corresponding int
@@ -88,7 +89,8 @@ def load_data(city, month, day):
         
     # filter by day of week if applicable
     if day != '':
-        df = df[df['day_of_week'] == day.title()]
+        #df = df[df['day_of_week'] == day.title()] #low version of pandas (v1.0 below)
+        df = df[df['day_of_week'] == days.index(day)]
 
     return df
 
@@ -124,6 +126,7 @@ def time_stats(df):
     start_time = time.time()
 
     # display the most common month
+    #popular_month = df['month'].value_counts().idxmax()
     popular_month = df['month'].value_counts().idxmax()
     print('What is the most popular month for traveling? Answer: {}'.format(months[popular_month-1].title()))
     
@@ -161,7 +164,8 @@ def station_stats(df):
     
     gs = df.groupby(['Start Station', 'End Station']).size().reset_index()
     gs.columns = ['Start Station', 'End Station', 'Count']
-    print('The most popular trip is from {} to {}'.format(gs.iloc[gs['Count'].idxmax()][0], gs.iloc[gs['Count'].idxmax()][1]))
+    # print('The most popular trip is from {} to {}'.format(gs.iloc[gs['Count'].idxmax()][0], gs.iloc[gs['Count'].idxmax()][1]))
+    print('The most popular trip is from {} to {}'.format(gs.iloc[gs['Count'].idxmax()]["Start Station"], gs.iloc[gs['Count'].idxmax()]["End Station"]))
     
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
