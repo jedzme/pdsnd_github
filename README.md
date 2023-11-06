@@ -24,7 +24,7 @@ The following data files are needed for this program:
 - new_york.csv
 - washington.csv    
 
-Please check _bikeshare.py_ and look for *CITY_DATA_COLUMNS* list, the list contains the expected columns for each csv (chicago, new york, and washington).<
+Please check _bikeshare.py_ and look for *CITY_DATA_COLUMNS* list, the list contains the expected columns for each csv (chicago, new york, and washington).
 
 ### Running bikeshare.py
 * Download and install [python](https://www.python.org/downloads/)
@@ -39,5 +39,4 @@ Please check _bikeshare.py_ and look for *CITY_DATA_COLUMNS* list, the list cont
     ```$ python bikeshare.py```
 
 ## Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+This project is from Udacity's **Programming for Data Science with Python**. Checkout Udacity's nano-degree programs through their [website](https://www.udacity.com/).
